@@ -1,6 +1,6 @@
 FROM golang:1.23
 
-RUN apt update && apt install libasound2-dev -y
+RUN apt update && apt install libasound2-dev pkg-config -y
 
 WORKDIR /app
 
