@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/go-audio/wav"
 	"github.com/hajimehoshi/go-mp3"
 )
 
@@ -24,4 +25,14 @@ func main() {
 		log.Fatalf("mp3.NewDecoder failed: %s", err)
 	}
 	fmt.Println(decodedMp3.Length())
+
+	out, err := os.Open("soundbank/drum.mp3")
+	if err != nil {
+		panic(err)
+	}
+	d2 := wav.NewDecoder(out)
+	d2.ReadInfo()
+	fmt.Println("New file ->", d2)
+	out.Close()
+	os.Remove(out.Name())
 }
