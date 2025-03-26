@@ -28,7 +28,10 @@ func (s *splicer) populateSoundbank(soundbankPath, dir string) error {
 		return fmt.Errorf("error unmarshalling file: %s", err)
 	}
 	for _, vowel := range soundbank.Vowels {
-
+		_, ok := s.soundbank[vowel]
+		if !ok {
+			s.soundbank[vowel] = 
+		}
 	}
 	return nil
 }
