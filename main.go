@@ -6,14 +6,16 @@ import (
 	"log"
 	"os"
 
-	"github.com/go-audio/wav"
 	"github.com/hajimehoshi/go-mp3"
+	ffmpeg "github.com/u2takey/ffmpeg-go"
 )
 
 func main() {
+	mp3Path := "soundbank/drum.mp3"
+	wavOut := "soundbank/output.wav"
 	fmt.Println("Hello World!")
 	// Sample code from github repo
-	fileBytes, err := os.ReadFile("soundbank/drum.mp3")
+	fileBytes, err := os.ReadFile(mp3Path)
 	if err != nil {
 		log.Fatalf("could not read soundFile: %s", err)
 	}
@@ -26,13 +28,6 @@ func main() {
 	}
 	fmt.Println(decodedMp3.Length())
 
-	out, err := os.Open("soundbank/drum.mp3")
-	if err != nil {
-		panic(err)
-	}
-	d2 := wav.NewDecoder(out)
-	d2.ReadInfo()
-	fmt.Println("New file ->", d2)
-	out.Close()
-	os.Remove(out.Name())
+	err = ffmpeg.Input("")
+
 }
