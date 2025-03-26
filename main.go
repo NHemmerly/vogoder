@@ -1,12 +1,9 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"log"
-	"os"
 
-	"github.com/hajimehoshi/go-mp3"
 	ffmpeg "github.com/u2takey/ffmpeg-go"
 )
 
@@ -14,20 +11,13 @@ func main() {
 	mp3Path := "soundbank/drum.mp3"
 	wavOut := "soundbank/output.wav"
 	fmt.Println("Hello World!")
-	// Sample code from github repo
-	fileBytes, err := os.ReadFile(mp3Path)
+	// Convert .mp3 to .wav
+
+	err := ffmpeg.Input(mp3Path).
+		Output(wavOut, ffmpeg.KwArgs{"acodec": "pcm_s16le", "ac": "2", "ar": "48000"}).
+		OverWriteOutput().ErrorToStdOut().Run()
 	if err != nil {
-		log.Fatalf("could not read soundFile: %s", err)
+		log.Fatalf("failed to convert file")
 	}
-
-	fileBytesReader := bytes.NewReader(fileBytes)
-
-	decodedMp3, err := mp3.NewDecoder(fileBytesReader)
-	if err != nil {
-		log.Fatalf("mp3.NewDecoder failed: %s", err)
-	}
-	fmt.Println(decodedMp3.Length())
-
-	err = ffmpeg.Input("")
 
 }
