@@ -31,14 +31,17 @@ func (s *Splicer) checkDirToMap(soundCat []string, dir string) error {
 			if err != nil {
 				return fmt.Errorf("error reading dir: %w", err)
 			}
-			phonFile = file[0].Name()
+			if len(file) > 0 {
+				phonFile = file[0].Name()
+				s.soundbank[phon] = soundDir + "/" + phonFile
+				fmt.Println(s.soundbank[phon])
+			}
 		} else {
 			if err := os.Mkdir(soundDir, 0755); err != nil {
 				return fmt.Errorf("error making dir: %w", err)
 			}
 			continue
 		}
-		s.soundbank[phon] = phonFile
 	}
 	return nil
 }
