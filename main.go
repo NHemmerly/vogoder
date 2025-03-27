@@ -10,8 +10,10 @@ import (
 )
 
 func main() {
-	mp3Path := "soundbank/drum.mp3"
-	wavOut := "soundbank/output.wav"
+	splicer := Splicer{soundbank: make(map[string]string)}
+	splicer.populateSoundbank("soundbank.yml", "./soundbank")
+	mp3Path := "testSounds/drum.mp3"
+	wavOut := "testSounds/output.wav"
 	fmt.Println("Hello World!")
 	// Convert .mp3 to .wav
 
