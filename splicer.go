@@ -6,11 +6,13 @@ import (
 	"io/fs"
 	"os"
 
+	"github.com/go-audio/wav"
 	"gopkg.in/yaml.v3"
 )
 
 type Splicer struct {
-	soundbank map[string]string
+	soundbank  map[string]string
+	outEncoder *wav.Encoder
 }
 
 type Soundbank struct {
@@ -19,6 +21,11 @@ type Soundbank struct {
 }
 
 func (s *Splicer) checkDirToMap(soundCat []string, dir string) error {
+	category, _ := dirExists(dir)
+	if !category {
+		os.Mkdir(dir, 0755)
+	}
+	os.Mkdir(dir, 0755)
 	for _, phon := range soundCat {
 		var phonFile string
 		soundDir := dir + phon
