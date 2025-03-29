@@ -20,6 +20,7 @@ func decodeFile(phonFile string) (*audio.IntBuffer, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error getting PCM: %w", err)
 	}
+	fmt.Println(dec.Format())
 	return raw, nil
 }
 
