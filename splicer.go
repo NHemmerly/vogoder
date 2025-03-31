@@ -20,6 +20,8 @@ type Soundbank struct {
 	Consonants []string `yaml:"consonants"`
 }
 
+// Set up Regexp
+
 func (s *Splicer) checkDirToMap(soundCat []string, dir string) error {
 	category, _ := dirExists(dir)
 	if !category {
@@ -41,7 +43,6 @@ func (s *Splicer) checkDirToMap(soundCat []string, dir string) error {
 			if len(file) > 0 {
 				phonFile = file[0].Name()
 				s.soundbank[phon] = soundDir + "/" + phonFile
-				fmt.Println(s.soundbank[phon])
 			}
 		} else {
 			if err := os.Mkdir(soundDir, 0755); err != nil {
@@ -72,6 +73,9 @@ func (s *Splicer) populateSoundbank(soundbankPath, dir string) error {
 	}
 	if err := s.checkDirToMap(soundbank.Consonants, consonantDir); err != nil {
 		return fmt.Errorf("error mapping to dirs: %w", err)
+	}
+	for key := range s.soundbank {
+		fmt.Println(key)
 	}
 
 	return nil

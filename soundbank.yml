@@ -1,53 +1,36 @@
 ---
 vowels:
-  - ɑː
-  - ɒ
-  - æ
-  - aɪ 
-  - aʊ 
-  - ɛ 
-  - eɪ 
+  - a
+  - ae
   - e
-  - ɪ
+  - E  
   - i
-  - oʊ 
-  - ɔː 
-  - ɔɪ 
-  - ʊ 
-  - uː 
-  - ʌ 
+  - I
+  - o 
+  - u  
+  - uh
+  - ɔ
   - space
-  - o
 consonants:
-  - b 
-  - d 
-  - dj 
-  - dʒ 
-  - ð 
-  - f 
-  - g 
-  - h 
-  - hw 
-  - j 
-  - k 
-  - l 
-  - lj 
-  - m 
-  - n 
-  - nj 
-  - ŋ 
-  - p 
-  - r 
+  - b
+  - ch
+  - d
+  - j
+  - th
+  - f
+  - g
+  - h
+  - y
+  - k
+  - l
+  - m
+  - n
+  - p
+  - r
   - s 
-  - sj 
-  - ʃ 
-  - t 
-  - tj 
-  - tʃ 
-  - θ 
-  - θj 
+  - sh
+  - t   
   - v 
   - w 
-  - z 
-  - zj 
-  - ʒ 
+  - z
+  - zh
