@@ -8,4 +8,4 @@ This project is inspired by [Animalese](https://nookipedia.com/wiki/Animalese), 
 
 ## Installation 
 
-Download or clone the repo locally. 
+Download or clone the repo locally. Sample soundbanks are provided in the `samples/` directory so users can quickly hear some examples of the intended output. 
