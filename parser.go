@@ -26,14 +26,15 @@ func (s *Splicer) parseDialogue(dialogFile string) error {
 			continue
 		}
 		// Check the soundbank for the current character
-		phon, ok := s.soundbank[string(dialogue[i])]
+		phon, ok := s.soundbank[string(dialogue[i:i+2])]
 		fmt.Printf("%v", phon)
 		if !ok {
-			phon, ok = s.soundbank[string(dialogue[i:i+2])]
+			phon, ok = s.soundbank[string(dialogue[i])]
 			fmt.Printf("%v\n", string(dialogue[i:i+2]))
 			if !ok {
 				return fmt.Errorf("phon does not exist or not read properly")
 			}
+		} else {
 			i++
 		}
 		// gather sound file

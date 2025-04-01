@@ -20,8 +20,6 @@ type Soundbank struct {
 	Consonants []string `yaml:"consonants"`
 }
 
-// Set up Regexp
-
 func (s *Splicer) checkDirToMap(soundCat []string, dir string) error {
 	category, _ := dirExists(dir)
 	if !category {
