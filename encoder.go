@@ -21,7 +21,6 @@ func decodeFile(phonFile string) (*audio.IntBuffer, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error getting PCM: %w", err)
 	}
-	fmt.Println(dec.Format())
 	return raw, nil
 }
 
@@ -33,7 +32,6 @@ func (s *Splicer) encodeToOut(raw *audio.IntBuffer) error {
 }
 
 func mp3ToWav(mp3Path, outputPath string) error {
-	fmt.Println("Hello World!")
 	// Convert .mp3 to .wav
 	err := ffmpeg.Input(mp3Path).
 		Output(outputPath, ffmpeg.KwArgs{"acodec": "pcm_s16le", "ac": "2", "ar": "48000"}).

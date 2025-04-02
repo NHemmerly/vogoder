@@ -72,9 +72,6 @@ func (s *Splicer) populateSoundbank(soundbankPath, dir string) error {
 	if err := s.checkDirToMap(soundbank.Consonants, consonantDir); err != nil {
 		return fmt.Errorf("error mapping to dirs: %w", err)
 	}
-	for key := range s.soundbank {
-		fmt.Println(key)
-	}
 
 	return nil
 }
